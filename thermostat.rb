@@ -17,7 +17,6 @@ class Thermostat
         elsif @unit == "k"
             @temperature = @temperature - 272.15
         end
-        #@temperature
     end
 
     def ask_unit
@@ -48,6 +47,7 @@ class Thermostat
     end
 
     def show_led
-        puts "LED color: #{@led}, the temp. is #{@temperature} °C"
+        #@temperature = @temperature.round(2)
+        puts "LED color: #{@led}, the temp. is #{'%.2f' % @temperature} °C"
     end
 end
