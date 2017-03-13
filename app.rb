@@ -1,5 +1,7 @@
 require_relative 'thermostat'              #'hello_world.rb' works too, this line refers to the file
 
+#https://labict.be/software-engineering/temperature/api/temperature/fake
+
 thermostat = Thermostat.new                      #HelloWorld.new() works too, but () is not neccesary
 #puts thermostat.show_led
 if ARGV.empty?
