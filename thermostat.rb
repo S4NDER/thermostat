@@ -11,17 +11,19 @@ class Thermostat
     end
 
     def convert_to_celcius
+        puts "Conversion from #{@unit} to °C"
         if @unit == "f"
-            @temperature - 38.8
+            @temperature = @temperature *1.8 +32
         elsif @unit == "k"
-            @temperature - 272.15
+            @temperature = @temperature - 272.15
         end
         #@temperature
     end
 
     def ask_unit
-        puts "Whats your temp. unit?"
-        @unit = gets
+        puts "Whats your temp. unit? [C]celcius, [F]Fahrenheit, [K]Kelvin"
+        @unit = gets.downcase.delete!("\n")
+        puts "Chosen unit is #{@unit}"
     end
 
     def ask_range
