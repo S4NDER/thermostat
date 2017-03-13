@@ -4,9 +4,19 @@ class Thermostat
     attr_accessor :led
     attr_accessor :unit
 
-    def initialize(temperature = 20, range = 1)
+    def initialize(temperature = 20, range = 1, unit="c")
         @temperature = temperature
         @range = range
+        @unit = unit
+    end
+
+    def convert_to_celcius
+        if @unit == "f"
+            @temperature - 38.8
+        elsif @unit == "k"
+            @temperature - 272.15
+        end
+        #@temperature
     end
 
     def ask_unit
