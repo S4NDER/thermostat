@@ -10,10 +10,12 @@ class Thermostat
         @temperature = temperature
         @range = range
         @unit = unit
+        @heating = false
+        @cooling = false
+        @led_color = "000000"
     end
 
     def convert_to_celcius
-        puts "Conversion from #{@unit} to °C"
         if @unit == "f"
             @temperature = (@temperature-32) / 1.8
             @ideal_temperature = (@ideal_temperature-32) / 1.8
@@ -49,16 +51,36 @@ class Thermostat
     def set_led
         led
         if @temperature <= (@ideal_temperature-@range)
-            @led = "blue"
+            @led_color = "0000FF"
+            @cooling = false
+            @heating = true
         elsif @temperature >= (@ideal_temperature+@range)
-            @led = "red"
+            @led_color = "FF0000"
+            @cooling = true
+            @heating = false
         else
-            @led = "green"
+            @led_color = "00FF00"
+            @cooling = false
+            @heating = false
         end
     end
 
     def show_led
         #@temperature = @temperature.round(2)
-        puts "LED color: #{@led}, the temp. is #{'%.2f' % @temperature} °C"
+        puts "LED color: #{@led_color}, the temp. is #{'%.2f' % @temperature} °C"
+        if @cooling
+            puts "Cooling is enabled"
+            message = "Cooling is enabled"
+        elsif @heating
+            puts "Heating is enabled"
+            message = "Heating is enabled"
+        else
+            message = "No climate devices are enabled"
+        end
+        File.open('thermo_log.txt', 'a') do |file|
+            file.write Time.now
+            file.write "\n#{message}\n"
+            file.write "LED color: #{@led_color}\n\n"
+        end
     end
 end
