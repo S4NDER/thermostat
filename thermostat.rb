@@ -3,8 +3,10 @@ class Thermostat
     attr_accessor :range
     attr_accessor :led
     attr_accessor :unit
+    attr_accessor :ideal_temperature
 
-    def initialize(temperature = 20, range = 1, unit="c")
+    def initialize(temperature = 20, range = 1, unit="c", ideal_temperature = 20)
+        @ideal_temperature = 20
         @temperature = temperature
         @range = range
         @unit = unit
@@ -30,16 +32,21 @@ class Thermostat
         @range = gets.to_i
     end
 
+    def ask_ideal_temp
+        puts "Whats the ideal temperature?"
+        @temperature = gets.to_i
+    end
+
     def ask_temp
-        puts "Whats the temp?"
+        puts "Whats the temperature?"
         @temperature = gets.to_i
     end
 
     def set_led
         led
-        if @temperature <= (20-@range)
+        if @temperature <= (@ideal_temperature-@range)
             @led = "blue"
-        elsif @temperature >= (20+@range)
+        elsif @temperature >= (@ideal_temperature+@range)
             @led = "red"
         else
             @led = "green"
