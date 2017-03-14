@@ -30,7 +30,6 @@ class Thermostat
     def ask_unit
         puts "Whats your temp. unit? [C]celcius, [F]Fahrenheit, [K]Kelvin"
         @unit = gets.downcase.delete!("\n")
-        puts "Chosen unit is #{@unit}"
     end
 
     def ask_range
