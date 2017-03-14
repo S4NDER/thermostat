@@ -3,10 +3,10 @@ require_relative 'thermostat'              #'hello_world.rb' works too, this lin
 #https://labict.be/software-engineering/temperature/api/temperature/fake
 
 thermostat = Thermostat.new                      #HelloWorld.new() works too, but () is not neccesary
-#puts thermostat.show_led
+
 if ARGV.empty?
-    thermostat.ask_ideal_temp
     thermostat.ask_unit
+    thermostat.ask_ideal_temp
     thermostat.ask_range
     thermostat.ask_temp
     thermostat.convert_to_celcius

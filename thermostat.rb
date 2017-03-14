@@ -6,7 +6,7 @@ class Thermostat
     attr_accessor :ideal_temperature
 
     def initialize(temperature = 20, range = 1, unit="c", ideal_temperature = 20)
-        @ideal_temperature = 20
+        @ideal_temperature = ideal_temperature
         @temperature = temperature
         @range = range
         @unit = unit
@@ -15,9 +15,13 @@ class Thermostat
     def convert_to_celcius
         puts "Conversion from #{@unit} to °C"
         if @unit == "f"
-            @temperature = @temperature *1.8 +32
+            @temperature = (@temperature-32) / 1.8
+            @ideal_temperature = (@ideal_temperature-32) / 1.8
+            puts @temperature
+            puts @ideal_temperature
         elsif @unit == "k"
             @temperature = @temperature - 272.15
+            @ideal_temperature = @ideal_temperature -272.15
         end
     end
 
@@ -34,7 +38,7 @@ class Thermostat
 
     def ask_ideal_temp
         puts "Whats the ideal temperature?"
-        @temperature = gets.to_i
+        @ideal_temperature = gets.to_i
     end
 
     def ask_temp
