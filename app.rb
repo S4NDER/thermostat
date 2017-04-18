@@ -1,6 +1,14 @@
 require_relative 'thermostat'              #'hello_world.rb' works too, this line refers to the file
+require 'openssl'
+require "open-uri"
 
-#https://labict.be/software-engineering/temperature/api/temperature/fake
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
+temperature_uri = "https://labict.be/software-engineering/temperature/api/temperature/fake"
+
+
+@data = URI.parse(temperature_uri).read
+puts @data
 
 thermostat = Thermostat.new                      #HelloWorld.new() works too, but () is not neccesary
 

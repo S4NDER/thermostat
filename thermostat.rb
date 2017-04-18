@@ -76,6 +76,12 @@ class Thermostat
         else
             message = "No climate devices are enabled"
         end
+
+        log_data(message)
+
+    end
+
+    def log_data(message)
         File.open('thermo_log.txt', 'a') do |file|
             file.write Time.now
             file.write "\n#{message}\n"
