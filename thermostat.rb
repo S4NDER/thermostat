@@ -1,5 +1,3 @@
-
-
 class Thermostat
     attr_reader :cooling
     attr_reader :heating
@@ -32,21 +30,4 @@ class Thermostat
         end
 
     end
-
-    # def show_led
-    #     #@temperature = @temperature.round(2)
-    #     puts "LED color: #{@led_color}, the temp. is #{'%.2f' % @temperature} °C"
-    #     if @cooling
-    #         puts "Cooling is enabled"
-    #         @message = "Cooling is enabled"
-    #     elsif @heating
-    #         puts "Heating is enabled"
-    #         @message = "Heating is enabled"
-    #     else
-    #         @message = "No climate devices are enabled"
-    #     end
-    #
-    #     #log_data(message)
-    #     #write(message)
-    # end
 end

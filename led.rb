@@ -17,5 +17,4 @@ class Led
     def get_led_color
         return @color
     end
-
 end
