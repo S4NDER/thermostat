@@ -2,3 +2,7 @@
 Cooling is enabled
 LED color: FF0000
 
+2017-04-24 17:25:53 +0200
+No climate devices are enabled
+LED color: 00FF00
+
