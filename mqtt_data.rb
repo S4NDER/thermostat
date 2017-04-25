@@ -8,7 +8,7 @@ class MqttData
         MQTT::Client.connect('mqtt.labict.be') do |client|
             while true
                 client.get(temperature_topic) do |topic,message|
-                    return JSON.parse(message)["temperature"]
+                    puts JSON.parse(message)["temperature"]
                 end
             end
         end
