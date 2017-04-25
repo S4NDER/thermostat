@@ -1,21 +1,25 @@
 require_relative 'thermostat'              #'hello_world.rb' works too, this line refers to the file
-require_relative 'logger.rb'
+require_relative 'datalogger.rb'
 require_relative 'datareader.rb'
 require_relative 'temperature_converter'
 require_relative 'led'
+require_relative 'mqtt_data'
 
 thermostat = Thermostat.new                      #HelloWorld.new() works too, but () is not neccesary
-logger = Logger.new("thermo_log_2.txt")
+logger = DataLogger.new("thermo_log_2.txt")
 datareader = DataReader.new
 temperature_converter = TemperatureConverter.new
 led = Led.new
+mqtt = MqttData.new
 
 if ARGV.empty?
     datareader.read_online_temperature
     datareader.ask_unit
     datareader.ask_ideal_temp
     datareader.ask_range
-    datareader.ask_temp
+    #datareader.ask_temp
+    datareader.temperature = mqtt.get_mqtt_temperature
+    puts "mbed: #{datareader.get_temperature}"
     temperature_converter.convert_to_celcius(datareader.get_unit, datareader.get_temperature)
     thermostat.control_climate(datareader.get_temperature, datareader.get_ideal_temperature, datareader.get_range)
     led.calculate_color(datareader.get_temperature, datareader.get_ideal_temperature, datareader.get_range)
@@ -31,4 +35,4 @@ else
     led.calculate_color(datareader.get_temperature, datareader.get_ideal_temperature, datareader.get_range)
     puts led.get_led_color
 end
-logger.write("LED Color: #{led.get_led_color}\n #{thermostat.get_climate_control_state}")
+logger.write("LED Color: #{led.get_led_color}\n#{thermostat.get_climate_control_state}")

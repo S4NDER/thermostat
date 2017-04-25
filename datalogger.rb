@@ -1,4 +1,4 @@
-class Logger
+class DataLogger
     attr_reader :filename
 
     def initialize ( filename )

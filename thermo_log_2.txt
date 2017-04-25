@@ -1,0 +1,4 @@
+# Logfile created on 2017-04-25 10:10:29 +0200 by logger.rb/56438
+2017-04-25 10:23:19 +0200
+LED Color: 16711680
+ Cooling is enabled
