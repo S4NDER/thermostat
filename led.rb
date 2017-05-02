@@ -9,7 +9,9 @@ class Led
         if temperature < (ideal_temperature - range)
             @color = "0000#{hexcolor.abs.to_s(16)}"
         elsif temperature > (ideal_temperature + range)
-            @color = "#{hexcolor.abs.to_s(16)}0000"
+            intensity = hexcolor.abs.to_s(16)
+            intensity.slice!(0)
+            @color = "#{intensity}0000"
         else
             @color = "00#{hexcolor.abs.to_s(16)}00"
         end
