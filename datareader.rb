@@ -1,7 +1,10 @@
 require 'openssl'
 require 'open-uri'
 
+original_verbose = $VERBOSE
+$VERBOSE = nil
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+$VERBOSE = original_verbose
 
 class DataReader
     attr_writer :online_data

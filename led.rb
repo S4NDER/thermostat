@@ -12,15 +12,11 @@ class Led
         hexcolor = colorstep * gradient.abs
 
         if temperature < (ideal_temperature - range)
-            intensity = hexcolor.abs.to_s(16)
-            intensity.slice!(0)
-            @color = "0000#{hexcolor.abs.to_s(16)}"
+            @color = "0000#{hexcolor.to_i.abs.to_s(16)}"
         elsif temperature > (ideal_temperature + range)
-            intensity = hexcolor.abs.to_s(16)
-            intensity.slice!(0)
-            @color = "#{hexcolor.abs.to_s(16)}0000"
+            @color = "#{hexcolor.to_i.abs.to_s(16)}0000"
         else
-            @color = "00#{hexcolor.abs.to_s(16)}00"
+            @color = "00#{hexcolor.to_i.abs.to_s(16)}00"
         end
     end
 
