@@ -1,10 +1,10 @@
 
-require_relative "datalogger.rb"
-require_relative "datareader.rb"
-require_relative "led.rb"
-require_relative "mqtt_data.rb"
-require_relative "temperature_converter.rb"
-require_relative "thermostat.rb"
+require_relative "lib/datalogger.rb"
+require_relative "lib/datareader.rb"
+require_relative "lib/led.rb"
+require_relative "lib/mqtt_data.rb"
+require_relative "lib/temperature_converter.rb"
+require_relative "lib/thermostat.rb"
 
 require 'optparse'
 

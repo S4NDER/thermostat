@@ -7,3 +7,9 @@ Cooling and heating are disabled
 2017-05-09 09:03:01 +0200
 LED Color: 
 Cooling and heating are disabled
+2017-05-09 10:30:08 +0200
+LED Color: 
+Cooling and heating are disabled
+2017-05-09 10:31:14 +0200
+LED Color: 
+Cooling and heating are disabled
