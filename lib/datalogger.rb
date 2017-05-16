@@ -1,3 +1,4 @@
+#DataLogger.new("example.txt") makes a logfile called example.txt
 class DataLogger
     attr_reader :filename
 

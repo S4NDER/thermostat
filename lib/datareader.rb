@@ -13,15 +13,18 @@ class DataReader
     attr_writer :ideal_temperature
     attr_writer :temperature
 
+# Reads the online temperature when called
     def read_online_temperature
         temperature_uri = "https://labict.be/software-engineering/temperature/api/temperature/fake"
         @online_data = URI.parse(temperature_uri).read
     end
 
+# Returns the online temperature
     def get_online_temperature
         return @online_data
     end
 
+# Asks in PS what the unit is
     def ask_unit
         puts "Whats your temp. unit? [C]celcius, [F]Fahrenheit, [K]Kelvin"
         @unit = gets.downcase.delete!("\n")

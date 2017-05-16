@@ -1,6 +1,9 @@
 class Led
     attr_accessor :color
 
+# Calculate the color gradient base on the temperature, ideal temperature and range
+# example: calculate_color(20, 21,2)
+
     def calculate_color (temperature, ideal_temperature, range)
         colorstep = 255 / ((ideal_temperature + range) - (ideal_temperature - range))
         gradient = temperature - (ideal_temperature-range)

@@ -7,6 +7,9 @@ class Thermostat
         @heating = false
     end
 
+# Checks if climate control needs to bee enabled.
+# control_climate(temperature, ideal_temperature, range)
+# example:  control_climate(20, 18, 1)
     def control_climate (temperature, ideal_temperature, range)
         if temperature <= (ideal_temperature - range)
             @heating = true

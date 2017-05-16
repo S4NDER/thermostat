@@ -12,17 +12,17 @@ options = {:unit => nil, :range => nil, :ideal_temperature => nil}
 OptionParser.new do |opts|
   opts.banner = "Usage: app.rb [options]"
 
-  opts.on("-u", "--unit U", "Temperature unit") do |unit|
+  opts.on("-u", "--unit U", String ,"Temperature unit") do |unit|
     options[:unit] = unit
     datareader.unit = unit
   end
 
-  opts.on( "-i", "--ideal_t I", "Ideal temperature") do |ideal_temperature|
+  opts.on( "-i", "--ideal_t I", Float,"Ideal temperature") do |ideal_temperature|
     options[:ideal_temperature] = ideal_temperature
     datareader.ideal_temperature = ideal_temperature
   end
 
-  opts.on("-r", "--range R", "Temperature range") do |range|
+  opts.on("-r", "--range R", Float,"Temperature range") do |range|
     options[:range] = range
     datareader.range = range
   end

@@ -14,7 +14,7 @@ class MqttData
                 client.get(temperature_topic) do |topic,message|
                     parsed_temperature = JSON.parse(message)["temperature"]
                     #client.publish('softwareengineering/thermostat/s4nder/led', '{"color": "FF0000"}', retain=false)
-                    @on_change_block.call(parsed_temperature) unless @on_change_block.nil?
+                    @on_change_block.call(parsed_temperature.to_f) unless @on_change_block.nil?
                 end
             end
         end
