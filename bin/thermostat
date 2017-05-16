@@ -1,12 +1,5 @@
-
-require_relative "lib/datalogger.rb"
-require_relative "lib/datareader.rb"
-require_relative "lib/led.rb"
-require_relative "lib/mqtt_data.rb"
-require_relative "lib/temperature_converter.rb"
-require_relative "lib/thermostat.rb"
-
 require 'optparse'
+require 'sander-jansen-thermostat-exercise'
 
 temperature_converter = TemperatureConverter.new
 logger = DataLogger.new("thermo_log.txt");
